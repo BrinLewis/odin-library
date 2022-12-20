@@ -54,14 +54,17 @@ const submitBookBtn = document.querySelector(".submitBtn");
 overlay.classList.toggle("invisible");
 form.classList.toggle("invisible");
 
-addBookBtn.addEventListener("click", () => {
+function toggleForm() {
   overlay.classList.toggle("invisible");
   form.classList.toggle("invisible");
+}
+
+addBookBtn.addEventListener("click", () => {
+  toggleForm();
 }); // Bring up new book form on click
 
 submitBookBtn.addEventListener("click", () => {
-  overlay.classList.toggle("invisible");
-  form.classList.toggle("invisible");
+  toggleForm();
 }); // Get rid of form when submitting it
 
 // Manually added books for testing purposes
