@@ -47,9 +47,30 @@ function displayBooks() {
   }
 }
 
+const addBookBtn = document.querySelector(".addBook");
+const overlay = document.querySelector(".overlay");
+const form = document.querySelector(".formContainer");
+const submitBookBtn = document.querySelector(".submitBtn");
+overlay.classList.toggle("invisible");
+form.classList.toggle("invisible");
+
+addBookBtn.addEventListener("click", () => {
+  overlay.classList.toggle("invisible");
+  form.classList.toggle("invisible");
+}); // Bring up new book form on click
+
+submitBookBtn.addEventListener("click", () => {
+  overlay.classList.toggle("invisible");
+  form.classList.toggle("invisible");
+}); // Get rid of form when submitting it
+
 // Manually added books for testing purposes
 addBookToLibrary("Harry Potter", "JK Rowling", 456, false);
 addBookToLibrary("LOTR", "Tolkien", 2265, true);
+addBookToLibrary("The Shining", "Stephen King", 345, false);
+addBookToLibrary("Harry Potter", "JK Rowling", 456, false);
+addBookToLibrary("LOTR", "Tolkien", 2265, true);
+addBookToLibrary("The Shining", "Stephen King", 345, false);
 displayBooks(myLibrary);
 
 // Open a form with 4 inputs, name, author, pages, read
