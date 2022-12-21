@@ -80,6 +80,16 @@ addBookBtn.addEventListener("click", () => {
   toggleForm();
 }); // Bring up new book form on click
 
+function clearForm() {
+  const textFields = document.querySelectorAll(".textField");
+  textFields.forEach(input => {
+    input.value = "";
+  });
+  
+  const readToggle = document.querySelector("#readToggle");
+  readToggle.checked = false;
+}
+
 const newBookTitle = document.querySelector("#title");
 const newBookAuthor = document.querySelector("#author");
 const newBookPages = document.querySelector("#pages");
@@ -99,6 +109,7 @@ submitBookBtn.addEventListener("click", () => {
     newBookRead.value
   );
   displayBooks();
+  clearForm();
   toggleForm();
 });
 
