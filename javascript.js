@@ -29,15 +29,20 @@ function renderCards(book) {
   const author = document.createElement("p");
   const pages = document.createElement("p");
   const read = document.createElement("p");
+  const deleteBtn = document.createElement("button");
 
   title.textContent = book.title;
   author.textContent = book.author;
   pages.textContent = book.pages;
+  deleteBtn.textContent = "Delete Book";
+  deleteBtn.setAttribute("type", "button");
+  deleteBtn.classList.add("deleteBtn");
 
   card.appendChild(title);
   card.appendChild(author);
   card.appendChild(pages);
   card.appendChild(read);
+  card.appendChild(deleteBtn);
 
   if (book.read === "true") {
     read.textContent = "Read";
@@ -46,6 +51,10 @@ function renderCards(book) {
     read.textContent = "Un-read";
     read.setAttribute("style", "background-color: red");
   }
+
+  deleteBtn.addEventListener("click", () => {
+    deleteBtn.parentNode.remove();
+  });
 }
 
 function displayBooks() {
@@ -91,7 +100,7 @@ submitBookBtn.addEventListener("click", () => {
   );
   displayBooks();
   toggleForm();
-}); // Need to figure out how to submit the text fields.
+});
 
 // Manually added books for testing purposes
 addBookToLibrary("Harry Potter", "JK Rowling", 456, "true");
