@@ -39,7 +39,7 @@ function renderCards(book) {
   card.appendChild(pages);
   card.appendChild(read);
 
-  if (book.read === true) {
+  if (book.read === "true") {
     read.textContent = "Read";
     read.setAttribute("style", "background-color: green");
   } else {
@@ -57,14 +57,14 @@ function displayBooks() {
 
 const addBookBtn = document.querySelector(".addBook");
 const overlay = document.querySelector(".overlay");
-const form = document.querySelector(".formContainer");
-const submitBookBtn = document.querySelector(".submitBtn");
+const formContainer = document.querySelector(".formContainer");
+
 overlay.classList.toggle("invisible");
-form.classList.toggle("invisible");
+formContainer.classList.toggle("invisible");
 
 function toggleForm() {
   overlay.classList.toggle("invisible");
-  form.classList.toggle("invisible");
+  formContainer.classList.toggle("invisible");
 }
 
 addBookBtn.addEventListener("click", () => {
@@ -75,8 +75,14 @@ const newBookTitle = document.querySelector("#title");
 const newBookAuthor = document.querySelector("#author");
 const newBookPages = document.querySelector("#pages");
 const newBookRead = document.querySelector("#readToggle");
+const submitBookBtn = document.querySelector(".submitBtn");
 
 submitBookBtn.addEventListener("click", () => {
+  if (newBookRead.checked === true) {
+    newBookRead.value = true;
+  } else {
+    newBookRead.value = false;
+  }
   addBookToLibrary(
     newBookTitle.value,
     newBookAuthor.value,
@@ -88,12 +94,12 @@ submitBookBtn.addEventListener("click", () => {
 }); // Need to figure out how to submit the text fields.
 
 // Manually added books for testing purposes
-addBookToLibrary("Harry Potter", "JK Rowling", 456, false);
-addBookToLibrary("LOTR", "Tolkien", 2265, true);
-addBookToLibrary("The Shining", "Stephen King", 345, false);
-addBookToLibrary("Harry Potter", "JK Rowling", 456, false);
-addBookToLibrary("LOTR", "Tolkien", 2265, true);
-addBookToLibrary("The Shining", "Stephen King", 345, false);
+addBookToLibrary("Harry Potter", "JK Rowling", 456, "true");
+addBookToLibrary("LOTR", "Tolkien", 2265, "true");
+addBookToLibrary("The Shining", "Stephen King", 345, "false");
+addBookToLibrary("Book 56", "Fred George", 456, "false");
+addBookToLibrary("Superman", "Chris robert", 2265, "true");
+addBookToLibrary("IT", "Stephen King", 345, "false");
 displayBooks(myLibrary);
 
 // Open a form with 4 inputs, name, author, pages, read
