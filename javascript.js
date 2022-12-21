@@ -82,10 +82,10 @@ addBookBtn.addEventListener("click", () => {
 
 function clearForm() {
   const textFields = document.querySelectorAll(".textField");
-  textFields.forEach(input => {
+  textFields.forEach((input) => {
     input.value = "";
   });
-  
+
   const readToggle = document.querySelector("#readToggle");
   readToggle.checked = false;
 }
@@ -97,11 +97,10 @@ const newBookRead = document.querySelector("#readToggle");
 const submitBookBtn = document.querySelector(".submitBtn");
 
 submitBookBtn.addEventListener("click", () => {
-  if (newBookRead.checked === true) {
-    newBookRead.value = true;
-  } else {
-    newBookRead.value = false;
-  }
+  newBookRead.checked === true
+    ? (newBookRead.value = true)
+    : (newBookRead.value = false);
+    
   addBookToLibrary(
     newBookTitle.value,
     newBookAuthor.value,
