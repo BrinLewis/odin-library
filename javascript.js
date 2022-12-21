@@ -12,7 +12,14 @@ function addBookToLibrary(title, author, pages, read) {
   myLibrary.push(book);
 }
 
-function renderCard(book) {
+function refreshCards() {
+  const bookContainer = document.querySelector(".books");
+  while (bookContainer.firstChild) {
+    bookContainer.firstChild.remove();
+  }
+} //Removes cards from the page before rendering them to avoid duplicates.
+
+function renderCards(book) {
   const card = document.createElement("div");
   card.classList.add("bookCard");
   const container = document.querySelector(".books");
@@ -42,8 +49,9 @@ function renderCard(book) {
 }
 
 function displayBooks() {
+  refreshCards();
   for (const book of myLibrary) {
-    renderCard(book); //Loop through the array and create a card for each book
+    renderCards(book); //Loop through the array and create a card for each book
   }
 }
 
@@ -63,9 +71,21 @@ addBookBtn.addEventListener("click", () => {
   toggleForm();
 }); // Bring up new book form on click
 
+const newBookTitle = document.querySelector("#title");
+const newBookAuthor = document.querySelector("#author");
+const newBookPages = document.querySelector("#pages");
+const newBookRead = document.querySelector("#readToggle");
+
 submitBookBtn.addEventListener("click", () => {
+  addBookToLibrary(
+    newBookTitle.value,
+    newBookAuthor.value,
+    newBookPages.value,
+    newBookRead.value
+  );
+  displayBooks();
   toggleForm();
-}); // Get rid of form when submitting it
+}); // Need to figure out how to submit the text fields.
 
 // Manually added books for testing purposes
 addBookToLibrary("Harry Potter", "JK Rowling", 456, false);
