@@ -28,12 +28,13 @@ function renderCards(book) {
   const title = document.createElement("p");
   const author = document.createElement("p");
   const pages = document.createElement("p");
-  const read = document.createElement("p");
+  const read = document.createElement("input");
+  read.setAttribute("type", "checkbox")
   const deleteBtn = document.createElement("button");
 
   title.textContent = book.title;
   author.textContent = book.author;
-  pages.textContent = book.pages;
+  pages.textContent = book.pages + " pages";
   deleteBtn.textContent = "Delete Book";
   deleteBtn.setAttribute("type", "button");
   deleteBtn.classList.add("deleteBtn");
@@ -45,15 +46,15 @@ function renderCards(book) {
   card.appendChild(deleteBtn);
 
   if (book.read === "true") {
-    read.textContent = "Read";
-    read.setAttribute("style", "background-color: green");
+    read.checked = true;
   } else {
-    read.textContent = "Un-read";
-    read.setAttribute("style", "background-color: red");
+    read.checked = false;
   }
 
   deleteBtn.addEventListener("click", () => {
     deleteBtn.parentNode.remove();
+    const index = myLibrary.indexOf(book);
+    myLibrary.splice(index, 1);
   });
 }
 
