@@ -47,11 +47,17 @@ function renderCards(book) {
 
   book.read === "true" ? (read.checked = true) : (read.checked = false);
 
+  read.addEventListener("click", toggleReadStatus(book, read));
+
   deleteBtn.addEventListener("click", () => {
     deleteBtn.parentNode.remove();
     const index = myLibrary.indexOf(book);
     myLibrary.splice(index, 1);
   });
+}
+
+function toggleReadStatus(book, read) {
+  read.checked ? (book.read = "true") : (book.read = "false");
 }
 
 function displayBooks() {
