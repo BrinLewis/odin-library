@@ -29,7 +29,7 @@ function renderCards(book) {
   const author = document.createElement("p");
   const pages = document.createElement("p");
   const read = document.createElement("input");
-  read.setAttribute("type", "checkbox")
+  read.setAttribute("type", "checkbox");
   const deleteBtn = document.createElement("button");
 
   title.textContent = book.title;
@@ -45,11 +45,7 @@ function renderCards(book) {
   card.appendChild(read);
   card.appendChild(deleteBtn);
 
-  if (book.read === "true") {
-    read.checked = true;
-  } else {
-    read.checked = false;
-  }
+  book.read === "true" ? (read.checked = true) : (read.checked = false);
 
   deleteBtn.addEventListener("click", () => {
     deleteBtn.parentNode.remove();
@@ -101,7 +97,7 @@ submitBookBtn.addEventListener("click", () => {
   newBookRead.checked === true
     ? (newBookRead.value = true)
     : (newBookRead.value = false);
-    
+
   addBookToLibrary(
     newBookTitle.value,
     newBookAuthor.value,
