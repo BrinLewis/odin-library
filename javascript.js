@@ -46,10 +46,14 @@ function renderCards(book) {
   card.appendChild(deleteBtn);
 
   book.read === "true" ? (read.checked = true) : (read.checked = false);
-  
-  read.addEventListener("click", toggleReadStatus(book, read));
 
-  deleteBtn.addEventListener("click", deleteBook(deleteBtn, book, myLibrary));
+  read.addEventListener("click", () => {
+    toggleReadStatus(book, read);
+  });
+
+  deleteBtn.addEventListener("click", () => {
+    deleteBook(deleteBtn, book, myLibrary);
+  });
 }
 
 function toggleReadStatus(book, read) {
