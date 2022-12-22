@@ -28,21 +28,28 @@ function renderCards(book) {
   const title = document.createElement("p");
   const author = document.createElement("p");
   const pages = document.createElement("p");
+  const readContainer = document.createElement("div");
   const read = document.createElement("input");
   read.setAttribute("type", "checkbox");
+  read.setAttribute("id", "readCheckbox");
+  const readLabel = document.createElement("label");
+  readLabel.setAttribute("for", "readCheckbox");
   const deleteBtn = document.createElement("button");
 
-  title.textContent = book.title;
-  author.textContent = book.author;
+  title.textContent = "Title: " + book.title;
+  author.textContent = "Written by: " + book.author;
   pages.textContent = book.pages + " pages";
-  deleteBtn.textContent = "Delete Book";
+  readLabel.textContent = "Read: "
+  deleteBtn.textContent = "\u274C";
   deleteBtn.setAttribute("type", "button");
   deleteBtn.classList.add("deleteBtn");
 
   card.appendChild(title);
   card.appendChild(author);
   card.appendChild(pages);
-  card.appendChild(read);
+  card.appendChild(readContainer);
+  readContainer.appendChild(readLabel);
+  readContainer.appendChild(read);
   card.appendChild(deleteBtn);
 
   book.read === "true" ? (read.checked = true) : (read.checked = false);
