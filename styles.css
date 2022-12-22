@@ -79,10 +79,22 @@ body {
 }
 
 .bookCard {
+  display: flex;
+  flex-direction: column;
   height: 350px;
   width: 300px;
   border: 2px solid black;
   border-radius: 5px;
+}
+
+.bookCard input {
+  display: flex;
+}
+
+.bookCard input::before {
+  content: "Read:";
+  font-size: 1rem;
+  align-self: center;
 }
 
 .books {
