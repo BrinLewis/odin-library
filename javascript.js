@@ -46,18 +46,20 @@ function renderCards(book) {
   card.appendChild(deleteBtn);
 
   book.read === "true" ? (read.checked = true) : (read.checked = false);
-
+  
   read.addEventListener("click", toggleReadStatus(book, read));
 
-  deleteBtn.addEventListener("click", () => {
-    deleteBtn.parentNode.remove();
-    const index = myLibrary.indexOf(book);
-    myLibrary.splice(index, 1);
-  });
+  deleteBtn.addEventListener("click", deleteBook(deleteBtn, book, myLibrary));
 }
 
 function toggleReadStatus(book, read) {
   read.checked ? (book.read = "true") : (book.read = "false");
+}
+
+function deleteBook(btn, book, array) {
+  btn.parentNode.remove();
+  const index = array.indexOf(book);
+  array.splice(index, 1);
 }
 
 function displayBooks() {
