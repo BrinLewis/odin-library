@@ -120,7 +120,7 @@ body {
 }
 
 .invisible {
-  /* display: none; */
+  display: none;
 }
 
 .header {
@@ -140,19 +140,23 @@ body {
   align-items: center;
 }
 
+.addBtnContainer img {
+  width: 30px;
+  height: 30px;
+}
+
 .addBtnContainer,
 .books {
   background-color: var(--main-bg);
 }
 
 .addBook {
-  font-size: 1.3rem;
   color: var(--text);
   border: 2px solid var(--text);
-  border-radius: 20px;
+  border-radius: 50%;
   background-color: var(--secondary);
-  height: 40px;
-  width: 200px;
+  height: 60px;
+  width: 60px;
   cursor: pointer;
   box-shadow: 0 0 7px 1px rgba(0, 0, 0, 0.301);
   text-shadow: 0 0 3px rgba(255, 255, 255, 0.534);
@@ -183,6 +187,7 @@ body {
   border: 3px solid var(--secondary);
   border-radius: 10px;
   padding: 20px;
+  margin-bottom: 20px;
 }
 
 .bookCard div {
