@@ -39,7 +39,7 @@ function renderCards(book) {
   title.textContent = "Title: " + book.title;
   author.textContent = "Written by: " + book.author;
   pages.textContent = book.pages + " pages";
-  readLabel.textContent = "Read: "
+  readLabel.textContent = "Read: ";
   deleteBtn.textContent = "\u274C";
   deleteBtn.setAttribute("type", "button");
   deleteBtn.classList.add("deleteBtn");
@@ -117,15 +117,23 @@ submitBookBtn.addEventListener("click", () => {
     ? (newBookRead.value = true)
     : (newBookRead.value = false);
 
-  addBookToLibrary(
-    newBookTitle.value,
-    newBookAuthor.value,
-    newBookPages.value,
-    newBookRead.value
-  );
-  displayBooks();
-  clearForm();
-  toggleForm();
+  if (
+    newBookTitle.value &&
+    newBookAuthor.value &&
+    newBookPages.value
+  ) {
+    addBookToLibrary(
+      newBookTitle.value,
+      newBookAuthor.value,
+      newBookPages.value,
+      newBookRead.value
+    );
+    displayBooks();
+    clearForm();
+    toggleForm();
+  } else {
+    alert("Could not add book, please ensure all text boxes are filled in.");
+  }
 });
 
 const cancelNewBook = document.getElementById("cancelBook");
@@ -133,7 +141,7 @@ const cancelNewBook = document.getElementById("cancelBook");
 cancelNewBook.addEventListener("click", () => {
   clearForm();
   toggleForm();
-})
+});
 
 // Manually added books for testing purposes
 addBookToLibrary("Harry Potter", "JK Rowling", 456, "true");
