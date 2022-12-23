@@ -9,26 +9,28 @@
   <body>
     <div class="header"><h1>Brin's Library</h1></div>
     <div class="addBtnContainer">
-      <button type="button" class="addBook">+ New Book</button>
+      <button type="button" class="addBook">
+        <img src="./images/plus.png" alt="plus sign" />
+      </button>
     </div>
     <div class="books"></div>
     <div class="formContainer">
-      <button>&#10060;</button>
+      <button id="cancelBook">&#10060;</button>
       <form action="">
         <legend>Add A New Book:</legend>
         <div class="inputContainer">
           <label for="title">Title:</label>
-          <input type="text" name="bookTitle" id="title" class="textField"/>
+          <input type="text" name="bookTitle" id="title" class="textField" />
         </div>
 
         <div class="inputContainer">
           <label for="author">Author:</label>
-          <input type="text" name="bookAuthor" id="author" class="textField"/>
+          <input type="text" name="bookAuthor" id="author" class="textField" />
         </div>
 
         <div class="inputContainer">
           <label for="pages"># of Pages:</label>
-          <input type="text" name="numOfPages" id="pages" class="textField"/>
+          <input type="text" name="numOfPages" id="pages" class="textField" />
         </div>
 
         <div class="inputContainer">
