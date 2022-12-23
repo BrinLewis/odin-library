@@ -182,6 +182,7 @@ body {
   gap: 15%;
   justify-content: center;
   align-items: center;
+  text-align: center;
   height: 350px;
   width: 300px;
   border: 3px solid var(--secondary);
