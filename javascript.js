@@ -117,11 +117,7 @@ submitBookBtn.addEventListener("click", () => {
     ? (newBookRead.value = true)
     : (newBookRead.value = false);
 
-  if (
-    newBookTitle.value &&
-    newBookAuthor.value &&
-    newBookPages.value
-  ) {
+  if (newBookTitle.value && newBookAuthor.value && newBookPages.value) {
     addBookToLibrary(
       newBookTitle.value,
       newBookAuthor.value,
@@ -143,5 +139,10 @@ cancelNewBook.addEventListener("click", () => {
   toggleForm();
 });
 
-addBookToLibrary("Harry Potter and the Goblet of Fire", "JK Rowling", "636", "true");
+addBookToLibrary(
+  "Harry Potter and the Goblet of Fire",
+  "JK Rowling",
+  "636",
+  "true"
+);
 displayBooks(myLibrary);
