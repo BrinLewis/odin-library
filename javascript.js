@@ -128,6 +128,13 @@ submitBookBtn.addEventListener("click", () => {
   toggleForm();
 });
 
+const cancelNewBook = document.getElementById("cancelBook");
+
+cancelNewBook.addEventListener("click", () => {
+  clearForm();
+  toggleForm();
+})
+
 // Manually added books for testing purposes
 addBookToLibrary("Harry Potter", "JK Rowling", 456, "true");
 addBookToLibrary("LOTR", "Tolkien", 2265, "true");
