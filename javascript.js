@@ -143,14 +143,5 @@ cancelNewBook.addEventListener("click", () => {
   toggleForm();
 });
 
-// Manually added books for testing purposes
-addBookToLibrary("Harry Potter", "JK Rowling", 456, "true");
-addBookToLibrary("LOTR", "Tolkien", 2265, "true");
-addBookToLibrary("The Shining", "Stephen King", 345, "false");
-addBookToLibrary("Book 56", "Fred George", 456, "false");
-addBookToLibrary("Superman", "Chris robert", 2265, "true");
-addBookToLibrary("IT", "Stephen King", 345, "false");
+addBookToLibrary("Harry Potter and the Goblet of Fire", "JK Rowling", "636", "true");
 displayBooks(myLibrary);
-
-// Open a form with 4 inputs, name, author, pages, read
-// When the submit button is clicked, take these inputs and store them in the array as a new book
