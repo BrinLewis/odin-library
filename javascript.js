@@ -117,7 +117,19 @@ submitBookBtn.addEventListener("click", () => {
     ? (newBookRead.value = true)
     : (newBookRead.value = false);
 
-  if (newBookTitle.value && newBookAuthor.value && newBookPages.value) {
+  let fieldsFull = false;
+
+  if (newBookTitle.validity.valueMissing) {
+    alert("What is the book called?");
+  } else if (newBookAuthor.validity.valueMissing) {
+    alert("Who was the book written by?");
+  } else if (newBookPages.validity.valueMissing) {
+    alert("How many pages are in the book?");
+  } else {
+    fieldsFull = true;
+  }
+
+  if (fieldsFull) {
     addBookToLibrary(
       newBookTitle.value,
       newBookAuthor.value,
@@ -127,8 +139,6 @@ submitBookBtn.addEventListener("click", () => {
     displayBooks();
     clearForm();
     toggleForm();
-  } else {
-    alert("Could not add book, please ensure all text boxes are filled in.");
   }
 });
 
